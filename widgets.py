@@ -45,9 +45,9 @@ class StatCard(tk.Frame):
     with a 3-px coloured accent strip at the top.
     """
 
-    def _init_(self, parent, label: str, value: str = "—",
+    def __init__(self, parent, label: str, value: str = "—",
                  accent: str = TEAL_500, **kw):
-        super()._init_(parent, bg=GRAY_50, bd=0, **kw)
+        super().__init__(parent, bg=GRAY_50, bd=0, **kw)
 
         card = tk.Frame(self, bg=WHITE,
                         highlightthickness=1,
@@ -84,8 +84,8 @@ class MistakePips(tk.Frame):
 
     MAX = 3
 
-    def _init_(self, parent, **kw):
-        super()._init_(parent, bg=WHITE, **kw)
+    def __init__(self, parent, **kw):
+        super().__init__(parent, bg=WHITE, **kw)
 
         tk.Label(self, text="MISTAKES", bg=WHITE,
                  fg=GRAY_400, font=FONT_LABEL).pack(anchor="w",
@@ -149,8 +149,8 @@ class TimerWidget(tk.Frame):
       reset()         — stop and restore to initial display
     """
 
-    def _init_(self, parent, **kw):
-        super()._init_(parent, bg=GRAY_50, bd=0, **kw)
+    def __init__(self, parent, **kw):
+        super().__init__(parent, bg=GRAY_50, bd=0, **kw)
 
         # Outer card frame
         self._card = tk.Frame(self, bg=WHITE,
@@ -269,8 +269,8 @@ class StatBar(tk.Frame):
     Horizontal stats row: Score · Remaining · Found · Mistakes · Timer.
     """
 
-    def _init_(self, parent, **kw):
-        super()._init_(parent, bg=GRAY_50, **kw)
+    def __init__(self, parent, **kw):
+        super().__init__(parent, bg=GRAY_50, **kw)
 
         self._score_card  = StatCard(self, "SCORE",       "0",     TEAL_500)
         self._remain_card = StatCard(self, "REMAINING",   "—",     AMBER_500)
@@ -304,10 +304,10 @@ class StatBar(tk.Frame):
 class PrimaryButton(tk.Frame):
     """Solid teal button with hover darkening."""
 
-    def _init_(self, parent, text: str, command=None,
+    def __init__(self, parent, text: str, command=None,
                  bg: str = TEAL_500, fg: str = WHITE,
                  hover_bg: str = TEAL_600, **kw):
-        super()._init_(parent, bg=parent["bg"], bd=0, **kw)
+        super().__init__(parent, bg=parent["bg"], bd=0, **kw)
         self._command  = command
         self._bg       = bg
         self._hover_bg = hover_bg
@@ -326,9 +326,9 @@ class PrimaryButton(tk.Frame):
 class GhostButton(tk.Frame):
     """Outlined secondary button — fills on hover."""
 
-    def _init_(self, parent, text: str, command=None,
+    def __init__(self, parent, text: str, command=None,
                  colour: str = TEAL_500, **kw):
-        super()._init_(parent, bg=parent["bg"],
+        super().__init__(parent, bg=parent["bg"],
                          highlightthickness=1,
                          highlightbackground=colour, **kw)
         self._command = command
@@ -362,10 +362,10 @@ class ImageCanvas(tk.Frame):
     DISPLAY_W = 500
     DISPLAY_H = 390
 
-    def _init_(self, parent, title: str, accent: str = TEAL_500,
+    def __init__(self, parent, title: str, accent: str = TEAL_500,
                  clickable: bool = False,
                  click_callback=None, **kw):
-        super()._init_(parent, bg=WHITE,
+        super().__init__(parent, bg=WHITE,
                          highlightthickness=1,
                          highlightbackground=GRAY_200, **kw)
         self._clickable      = clickable
@@ -458,8 +458,8 @@ class ImageCanvas(tk.Frame):
 class MessageBar(tk.Frame):
     """Bottom status strip with teal dot accent."""
 
-    def _init_(self, parent, **kw):
-        super()._init_(parent, bg=GRAY_100,
+    def __init__(self, parent, **kw):
+        super().__init__(parent, bg=GRAY_100,
                          highlightthickness=1,
                          highlightbackground=GRAY_200, **kw)
         tk.Frame(self, bg=GRAY_200, height=1).pack(fill="x")
